@@ -256,28 +256,44 @@ blockquote > * + *,
 }
 
 @media print, (min-width: 48em) {
-  h3 {
-    text-align: right;
-    margin-bottom: inherit;
+  body {
+    display: flex;
+    flex-direction: column;
   }
 
   .masthead {
     text-align: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 0;
+    padding-top: 0;
   }
 
-  .masthead > *,
-  section {
-    grid-column: content;
+  .masthead section {
+    align-items: center;
   }
 
   .masthead img {
-    grid-column: side;
-    grid-row: span 2;
-    max-width: 100%;
+    max-width: 20%;
+    margin: 0;
+  }
+
+  .masthead .icon-list {
+    flex-direction: row;
   }
 
   section {
-    display: contents;
+    display: flex;
+    flex-direction: column;
+    break-inside: always;
+    overflow: hidden;
+    orphans: 2;
+  }
+
+  section article {
+    break-inside: auto;
   }
 
   .icon-list {
